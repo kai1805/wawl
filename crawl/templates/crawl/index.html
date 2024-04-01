@@ -1,0 +1,57 @@
+{% extends "crawl/base.html" %}
+
+{% block head %}
+<title>Web Crawler</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Web Simple Crawler</h1>
+    <!-- enctype="multipart/form-data" -->
+    <form action="/crawl_submit" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="url-name" class="form-label">URL: </label>
+            <input class="form-control" type="text" placeholder="Ex: example.com" aria-label="default input example" id="url-name" name="url-name" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration: </label>
+            <select class="form-select" aria-label="Default select example 2" name="duration">
+                <option selected value="1">1 min</option>
+                <option value="2">2 min</option>
+                <option value="5">5 min</option>
+                <option value="10">10 min</option>
+                <option value="20">20 min</option>
+                <option value="60">60 min</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+{% if link_urls %}
+<div class="container">
+    <h2>Crawl Result</h2>
+    <h5>List link:</h5>
+    <div class="list-link-container">
+        {% for url in link_urls %}
+        <div class="row">
+            <a href="{{url}}">{{url}}</a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <h5>List file:</h5>
+    <div class="list-link-container">
+        {% for url in file_urls %}
+        <div class="row">
+            <a href="{{url}}">{{url}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+

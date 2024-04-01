@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-icon-row {
+    height: 64px; 
+    display: flex; 
+    justify-content: center;
+}
+
+.footer-icon {
+    display: flex;
+}
+
+.footer-icon-divider {
+    width: 2px;
+    height: 100%;
+    margin: 0 15px;
+    background-color: white;
+}
+
+.footer-copyright {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    margin-top: 64px;
+    background-color: #dfdfdf; 
+}
+
+.container {
+    width: 50%;
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.btn {
+    width: 100%;
+}
+
+.list-link-container{
+    max-height: 400px;
+    overflow: scroll;
+}
